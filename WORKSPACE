@@ -16,8 +16,11 @@ load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
 http_archive(
     name = "io_bazel_rules_go",
-    urls = ["https://github.com/bazelbuild/rules_go/releases/download/0.18.3/rules_go-0.18.3.tar.gz"],
-    sha256 = "86ae934bd4c43b99893fc64be9d9fc684b81461581df7ea8fc291c816f5ee8c5",
+    urls = [
+        "https://storage.googleapis.com/bazel-mirror/github.com/bazelbuild/rules_go/releases/download/0.18.7/rules_go-0.18.7.tar.gz",
+        "https://github.com/bazelbuild/rules_go/releases/download/0.18.7/rules_go-0.18.7.tar.gz",
+    ],
+    sha256 = "45409e6c4f748baa9e05f8f6ab6efaa05739aa064e3ab94e5a1a09849c51806a",
 )
 
 http_archive(
@@ -35,9 +38,9 @@ http_archive(
 
 http_archive(
     name = "distroless",
-    sha256 = "87a4d176bf4ceb78f23fe2547cb79dd41b537dcdf477e6da548d3001acb0f47b",
-    strip_prefix = "distroless-a4fd5de337e31911aeee2ad5248284cebeb6a6f4",
-    urls = ["https://github.com/GoogleContainerTools/distroless/archive/a4fd5de337e31911aeee2ad5248284cebeb6a6f4.tar.gz"],
+    sha256 = "14834aaf9e005b9175de2cfa2b420c80778880ee4d9f9a9f7f385d3b177abff7",
+    strip_prefix = "distroless-fa0765cc86064801e42a3b35f50ff2242aca9998",
+    urls = ["https://github.com/GoogleContainerTools/distroless/archive/fa0765cc86064801e42a3b35f50ff2242aca9998.tar.gz"],
 )
 
 load("@io_bazel_rules_go//go:deps.bzl", "go_rules_dependencies", "go_register_toolchains")
@@ -63,7 +66,7 @@ load(
 
 container_pull(
     name = "daisy",
-    digest = "sha256:ffbd78eb5390a6fd7be43ec393d8f1e1a6448ea1bad23787f47028f3ada48926",
+    digest = "sha256:a23774074d5941ed9e25f64ee7e02f96d2f8e09a4d7cee7131b49664267c33c7",
     registry = "gcr.io",
     repository = "compute-image-tools/daisy",
 )
@@ -140,10 +143,10 @@ go_repository(
 go_repository(
     name = "com_github_google_go-cmp",
     importpath = "github.com/google/go-cmp",
-		urls = ["https://github.com/google/go-cmp/archive/875f8df8b7965f1eac1098d36d677f807ac0b49e.tar.gz"],
-		strip_prefix = "go-cmp-875f8df8b7965f1eac1098d36d677f807ac0b49e",
-		sha256 = "ad74121b3d4d27be6a18818d1daeb5258991c01e4634ab322176f83e858701ec",
-		type = "tar.gz",
+    urls = ["https://github.com/google/go-cmp/archive/875f8df8b7965f1eac1098d36d677f807ac0b49e.tar.gz"],
+    strip_prefix = "go-cmp-875f8df8b7965f1eac1098d36d677f807ac0b49e",
+    sha256 = "ad74121b3d4d27be6a18818d1daeb5258991c01e4634ab322176f83e858701ec",
+    type = "tar.gz",
 )
 
 load(
